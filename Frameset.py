@@ -1,5 +1,6 @@
 import ArgumentType
 import FramesetArgument
+import xml.etree.ElementTree
 
 
 class Frameset(object):
@@ -7,6 +8,12 @@ class Frameset(object):
     def __init__(self, id: str):
         self.id = id
         self.framesetArguments = []
+
+    def initWithFile(self, fileName: str):
+        root = xml.etree.ElementTree.parse(fileName).getroot()
+        self.id = root.attrib["id"]
+        for child in root:
+            self.framesetArguments.append(FramesetArgument.FramesetArgument(child.attrib["name"], child.text))
 
     def containsArgument(self, argumentType: ArgumentType) -> bool:
         for framesetArgument in self.framesetArguments:

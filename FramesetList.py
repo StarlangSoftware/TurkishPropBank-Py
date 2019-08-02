@@ -1,17 +1,23 @@
 import Frameset
+import os
 
 
 class FramesetList(object):
 
     def __init__(self):
         self.frames = []
+        for r, d, f in os.walk("Predicates/"):
+            for file in f:
+                frameset = Frameset.Frameset("")
+                frameset.initWithFile(os.path.join(r, file))
+                self.frames.append(frameset)
 
     def readFromXml(self, synSetId: str):
         frameset = {}
         for f in self.frames:
             if f.getId() == synSetId:
                 for i in range(len(f.getFramesetArguments())):
-                    framesetArgument = f.getFramesetArguments().get(i)
+                    framesetArgument = f.getFramesetArguments()[i]
                     frameset[framesetArgument.getArgumentType()] = framesetArgument.getDefinition()
         return frameset
 
