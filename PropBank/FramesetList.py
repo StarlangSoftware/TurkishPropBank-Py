@@ -1,4 +1,4 @@
-import Frameset
+from PropBank import Frameset
 import os
 
 

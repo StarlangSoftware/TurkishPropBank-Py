@@ -1,8 +1,6 @@
 import os
 import xml.etree.ElementTree
-import Predicate
-import RoleSet
-import Role
+from PropBank import Predicate, RoleSet, Role
 
 
 class PredicateList(object):

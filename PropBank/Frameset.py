@@ -1,5 +1,4 @@
-import ArgumentType
-import FramesetArgument
+from PropBank import ArgumentType, FramesetArgument
 import xml.etree.ElementTree
 
 

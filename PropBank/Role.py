@@ -1,4 +1,4 @@
-import ArgumentType
+from PropBank import ArgumentType
 
 
 class Role(object):
