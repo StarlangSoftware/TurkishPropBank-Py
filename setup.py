@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name='PropBank',
-    version='',
+    name='NlpToolkit-PropBank',
+    version='1.0.0',
     packages=['PropBank'],
-    url='',
+    url='https://github.com/olcaytaner/TurkishPropbank-Py',
     license='',
-    author='olcay',
-    author_email='',
-    description=''
+    author='olcaytaner',
+    author_email='olcaytaner@isikun.edu.tr',
+    description='Turkish PropBank'
 )
