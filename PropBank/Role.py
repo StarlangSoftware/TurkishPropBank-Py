@@ -1,4 +1,4 @@
-from PropBank import ArgumentType
+from PropBank.ArgumentType import ArgumentType
 
 
 class Role(object):
@@ -18,4 +18,4 @@ class Role(object):
         return self.n
 
     def getArgumentType(self) -> ArgumentType:
-        return ArgumentType.ArgumentType.getArguments("ARG" + self.f.upper())
+        return ArgumentType.getArguments("ARG" + self.f.upper())

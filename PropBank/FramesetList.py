@@ -1,4 +1,4 @@
-from PropBank import Frameset
+from PropBank.Frameset import Frameset
 import os
 
 
@@ -8,7 +8,7 @@ class FramesetList(object):
         self.frames = []
         for r, d, f in os.walk("Predicates/"):
             for file in f:
-                frameset = Frameset.Frameset("")
+                frameset = Frameset("")
                 frameset.initWithFile(os.path.join(r, file))
                 self.frames.append(frameset)
 

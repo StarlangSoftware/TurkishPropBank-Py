@@ -1,4 +1,4 @@
-from PropBank import Role
+from PropBank.Role import Role
 
 
 class RoleSet(object):

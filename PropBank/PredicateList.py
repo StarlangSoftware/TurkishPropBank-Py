@@ -1,6 +1,8 @@
 import os
 import xml.etree.ElementTree
-from PropBank import Predicate, RoleSet, Role
+from PropBank.Predicate import Predicate
+from PropBank.RoleSet import RoleSet
+from PropBank.Role import Role
 
 
 class PredicateList(object):
@@ -12,11 +14,11 @@ class PredicateList(object):
                 root = xml.etree.ElementTree.parse(os.path.join(r, file)).getroot()
                 for predicate in root:
                     lemma = predicate.attrib["lemma"]
-                    newPredicate = Predicate.Predicate(lemma)
+                    newPredicate = Predicate(lemma)
                     for roleSet in predicate:
                         id = roleSet.attrib["id"]
                         name = roleSet.attrib["name"]
-                        newRoleSet = RoleSet.RoleSet(id, name)
+                        newRoleSet = RoleSet(id, name)
                         for roles in roleSet:
                             for role in roles:
                                 if "descr" in role.attrib:
@@ -31,7 +33,7 @@ class PredicateList(object):
                                     n = role.attrib["n"]
                                 else:
                                     n = ""
-                                newRole = Role.Role(descr, f, n)
+                                newRole = Role(descr, f, n)
                                 newRoleSet.addRole(newRole)
                         newPredicate.addRoleSet(newRoleSet)
                     self.list[lemma] = newPredicate

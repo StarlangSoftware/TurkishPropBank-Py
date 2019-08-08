@@ -1,4 +1,4 @@
-from PropBank import RoleSet
+from PropBank.RoleSet import RoleSet
 
 
 class Predicate(object):

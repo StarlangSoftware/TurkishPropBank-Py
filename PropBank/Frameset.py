@@ -1,4 +1,5 @@
-from PropBank import ArgumentType, FramesetArgument
+from PropBank.ArgumentType import ArgumentType
+from PropBank.FramesetArgument import FramesetArgument
 import xml.etree.ElementTree
 
 
@@ -12,11 +13,11 @@ class Frameset(object):
         root = xml.etree.ElementTree.parse(fileName).getroot()
         self.id = root.attrib["id"]
         for child in root:
-            self.framesetArguments.append(FramesetArgument.FramesetArgument(child.attrib["name"], child.text))
+            self.framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
 
     def containsArgument(self, argumentType: ArgumentType) -> bool:
         for framesetArgument in self.framesetArguments:
-            if ArgumentType.ArgumentType.getArguments(framesetArgument.getArgumentType()) == argumentType:
+            if ArgumentType.getArguments(framesetArgument.getArgumentType()) == argumentType:
                 return True
         return False
 
@@ -28,7 +29,7 @@ class Frameset(object):
                 check = True
                 break
         if not check:
-            arg = FramesetArgument.FramesetArgument(type, definition)
+            arg = FramesetArgument(type, definition)
             self.framesetArguments.append(arg)
 
     def deleteArgument(self, type: str, definition: str):
