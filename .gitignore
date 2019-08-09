@@ -337,3 +337,17 @@ lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/labels
 lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/mklabels.py
 lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/tests.py
 lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/x_user_defined.py
+dist/NlpToolkit-PropBank-1.0.0.tar.gz
+NlpToolkit_PropBank.egg-info/dependency_links.txt
+NlpToolkit_PropBank.egg-info/PKG-INFO
+NlpToolkit_PropBank.egg-info/SOURCES.txt
+NlpToolkit_PropBank.egg-info/top_level.txt
+PropBank/__pycache__/__init__.cpython-37.pyc
+PropBank/__pycache__/ArgumentType.cpython-37.pyc
+PropBank/__pycache__/Frameset.cpython-37.pyc
+PropBank/__pycache__/FramesetArgument.cpython-37.pyc
+PropBank/__pycache__/FramesetList.cpython-37.pyc
+PropBank/__pycache__/Predicate.cpython-37.pyc
+PropBank/__pycache__/PredicateList.cpython-37.pyc
+PropBank/__pycache__/Role.cpython-37.pyc
+PropBank/__pycache__/RoleSet.cpython-37.pyc
