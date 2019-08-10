@@ -1,6 +1,9 @@
 from __future__ import annotations
 from enum import Enum, auto
 
+"""
+Enumerated class for argument type.
+"""
 
 class ArgumentType(Enum):
     NONE = auto()
@@ -22,6 +25,19 @@ class ArgumentType(Enum):
     ARGMMNR = auto()
     ARGMDIR = auto()
 
+    """
+    The getArguments method takes an argumentsType string and returns the ArgumentType form of it.
+
+    PARAMETERS
+    ----------
+    argumentsType : str 
+        Type of the argument in string form
+        
+    RETURNS
+    -------
+    ArgumentType
+        Type of the argument in ArgumentType form
+    """
     @staticmethod
     def getArguments(argumentsType: str) -> ArgumentType:
         for type in ArgumentType:
@@ -29,6 +45,19 @@ class ArgumentType(Enum):
                 return type
         return ArgumentType.NONE
 
+    """
+    The getPropbankType method takes an argumentType in ArgumentType form and returns the string form of it.
+
+    PARAMETERS
+    ----------
+    argumentType : ArgumentType 
+        Type of the argument in {@link ArgumentType} form
+        
+    RETURNS
+    -------
+    str
+        Type of the argument in string form
+    """
     @staticmethod
     def getPropbankType(argumentType: ArgumentType) -> str:
         if argumentType is None:

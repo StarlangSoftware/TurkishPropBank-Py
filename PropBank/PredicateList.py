@@ -7,6 +7,10 @@ from PropBank.Role import Role
 
 class PredicateList(object):
 
+    """
+    A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
+    file inside that folder, the constructor creates a Predicate and puts in inside the list dictionary.
+    """
     def __init__(self):
         self.list = {}
         for r, d, f in os.walk("Frames/"):
@@ -38,8 +42,29 @@ class PredicateList(object):
                         newPredicate.addRoleSet(newRoleSet)
                     self.list[lemma] = newPredicate
 
+    """
+    The size method returns the number of predicates inside the list.
+    
+    RETURNS
+    -------
+    int
+        the size of the list dict.
+    """
     def size(self):
         return len(self.list)
 
+    """
+    getPredicate method returns the Predicate with the given lemma.
+
+    PARAMETERS
+    ----------
+    lemma : str 
+        Lemma of the searched predicate
+        
+    RETURNS
+    -------
+    Predicate
+        Predicate which has the given lemma.
+    """
     def getPredicate(self, lemma: str) -> Predicate:
         return self.list[lemma]
