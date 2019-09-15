@@ -78,3 +78,22 @@ class RoleSet(object):
     """
     def getRole(self, index: int) -> Role:
         return self.roles[index]
+
+    """
+    Finds and returns the role with the given argument number n. For example, if n == 0, the method returns
+    the argument ARG0.
+    
+    PARAMETERS
+    ----------
+    n : str
+        Argument number
+        
+    RETURNS
+    -------
+    Role
+        The role with the given argument number n.
+    """
+    def getRoleWithArgument(self, n: str) -> Role:
+        for role in self.roles:
+            if role.getN() == n:
+                return role

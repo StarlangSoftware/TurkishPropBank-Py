@@ -1,5 +1,7 @@
 import os
 import xml.etree.ElementTree
+from collections import KeysView
+
 from PropBank.Predicate import Predicate
 from PropBank.RoleSet import RoleSet
 from PropBank.Role import Role
@@ -68,3 +70,14 @@ class PredicateList(object):
     """
     def getPredicate(self, lemma: str) -> Predicate:
         return self.list[lemma]
+
+    """
+    The method returns all lemma in the predicate list.
+    
+    RETURNS
+    -------
+    dict
+        All lemma in the predicate list.
+    """
+    def getLemmaList(self) -> KeysView:
+        return self.list.keys()
