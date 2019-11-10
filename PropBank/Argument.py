@@ -1,5 +1,8 @@
 class Argument(object):
 
+    _argumentType: str
+    _id: str
+
     """
     A constructor of Argument class which takes argument string which is in the form of argumentType$id
     and parses this string into argumentType and id. If the argument string does not contain '$' then the
@@ -12,10 +15,10 @@ class Argument(object):
     """
     def __init__(self, argument: str):
         if "$" in argument:
-            self.argumentType = argument[0:argument.index("$")]
-            self.id = argument[argument.index("$") + 1:]
+            self._argumentType = argument[0:argument.index("$")]
+            self._id = argument[argument.index("$") + 1:]
         else:
-            self.argumentType = "NONE"
+            self._argumentType = "NONE"
 
     """
     Another constructor of Argument class which takes argumentType and id as inputs and initializes corresponding attributes
@@ -28,8 +31,8 @@ class Argument(object):
         Id of the argument
     """
     def initWithId(self, argumentType: str, id: str):
-        self.argumentType = argumentType
-        self.id = id
+        self._argumentType = argumentType
+        self._id = id
 
     """
     Accessor for argumentType.
@@ -40,7 +43,7 @@ class Argument(object):
         argumentType.
     """
     def getArgumentType(self) -> str:
-        return self.argumentType
+        return self._argumentType
 
     """
     Accessor for id.
@@ -51,7 +54,7 @@ class Argument(object):
         id.
     """
     def getId(self) -> str:
-        return self.id
+        return self._id
 
     """
     __str__ converts an Argument to a string. If the argumentType is "NONE" returns only "NONE", otherwise
@@ -63,7 +66,7 @@ class Argument(object):
         string form of argument
     """
     def __str__(self) -> str:
-        if self.argumentType == "NONE":
-            return self.argumentType
+        if self._argumentType == "NONE":
+            return self._argumentType
         else:
-            return self.argumentType + "$" + self.id
+            return self._argumentType + "$" + self._id

@@ -5,6 +5,9 @@ import xml.etree.ElementTree
 
 class Frameset(object):
 
+    _framesetArguments: list
+    _id: str
+
     """
     A constructor of Frameset class which takes id as input and initializes corresponding attribute
 
@@ -14,8 +17,8 @@ class Frameset(object):
         Id of the frameset
     """
     def __init__(self, id: str):
-        self.id = id
-        self.framesetArguments = []
+        self._id = id
+        self._framesetArguments = []
 
     """
     Another constructor of Frameset class which takes filename as input and reads the frameset
@@ -27,9 +30,9 @@ class Frameset(object):
     """
     def initWithFile(self, fileName: str):
         root = xml.etree.ElementTree.parse(fileName).getroot()
-        self.id = root.attrib["id"]
+        self._id = root.attrib["id"]
         for child in root:
-            self.framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
+            self._framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
 
     """
     containsArgument method which checks if there is an Argument of the given argumentType.
@@ -45,7 +48,7 @@ class Frameset(object):
         true if the Argument with the given argumentType exists, false otherwise.
     """
     def containsArgument(self, argumentType: ArgumentType) -> bool:
-        for framesetArgument in self.framesetArguments:
+        for framesetArgument in self._framesetArguments:
             if ArgumentType.getArguments(framesetArgument.getArgumentType()) == argumentType:
                 return True
         return False
@@ -61,16 +64,16 @@ class Frameset(object):
     definition : str
         Definition of the new FramesetArgument
     """
-    def addArgument(self, type: str, definition: str):
+    def addArgument(self, argumentType: str, definition: str):
         check = False
-        for framesetArgument in self.framesetArguments:
-            if framesetArgument.getArgumentType() == type:
+        for framesetArgument in self._framesetArguments:
+            if framesetArgument.getArgumentType() == argumentType:
                 framesetArgument.setDefinition(definition)
                 check = True
                 break
         if not check:
-            arg = FramesetArgument(type, definition)
-            self.framesetArguments.append(arg)
+            arg = FramesetArgument(argumentType, definition)
+            self._framesetArguments.append(arg)
 
     """
     The deleteArgument method takes a type and a definition of a FramesetArgument as input, then it searches for the FramesetArgument with these type and
@@ -83,10 +86,10 @@ class Frameset(object):
     definition : str 
         Definition of the to be deleted FramesetArgument
     """
-    def deleteArgument(self, type: str, definition: str):
-        for framesetArgument in self.framesetArguments:
-            if framesetArgument.getArgumentType() == type and framesetArgument.getDefinition() == definition:
-                self.framesetArguments.remove(framesetArgument)
+    def deleteArgument(self, argumentType: str, definition: str):
+        for framesetArgument in self._framesetArguments:
+            if framesetArgument.getArgumentType() == argumentType and framesetArgument.getDefinition() == definition:
+                self._framesetArguments.remove(framesetArgument)
                 break
 
     """
@@ -98,7 +101,7 @@ class Frameset(object):
         framesetArguments.
     """
     def getFramesetArguments(self) -> list:
-        return self.framesetArguments
+        return self._framesetArguments
 
     """
     Accessor for id.
@@ -109,7 +112,7 @@ class Frameset(object):
         id.
     """
     def getId(self) -> str:
-        return self.id
+        return self._id
 
     """
     Mutator for id.
@@ -120,4 +123,4 @@ class Frameset(object):
         id to set.
     """
     def setId(self, id: str):
-        self.id = id
+        self._id = id

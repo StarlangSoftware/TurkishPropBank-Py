@@ -9,12 +9,14 @@ from PropBank.Role import Role
 
 class PredicateList(object):
 
+    _list: dict
+
     """
     A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
     file inside that folder, the constructor creates a Predicate and puts in inside the list dictionary.
     """
     def __init__(self):
-        self.list = {}
+        self._list = {}
         for r, d, f in os.walk("Frames/"):
             for file in f:
                 root = xml.etree.ElementTree.parse(os.path.join(r, file)).getroot()
@@ -42,7 +44,7 @@ class PredicateList(object):
                                 newRole = Role(descr, f, n)
                                 newRoleSet.addRole(newRole)
                         newPredicate.addRoleSet(newRoleSet)
-                    self.list[lemma] = newPredicate
+                    self._list[lemma] = newPredicate
 
     """
     The size method returns the number of predicates inside the list.
@@ -53,7 +55,7 @@ class PredicateList(object):
         the size of the list dict.
     """
     def size(self):
-        return len(self.list)
+        return len(self._list)
 
     """
     getPredicate method returns the Predicate with the given lemma.
@@ -69,7 +71,7 @@ class PredicateList(object):
         Predicate which has the given lemma.
     """
     def getPredicate(self, lemma: str) -> Predicate:
-        return self.list[lemma]
+        return self._list[lemma]
 
     """
     The method returns all lemma in the predicate list.
@@ -80,4 +82,4 @@ class PredicateList(object):
         All lemma in the predicate list.
     """
     def getLemmaList(self) -> KeysView:
-        return self.list.keys()
+        return self._list.keys()

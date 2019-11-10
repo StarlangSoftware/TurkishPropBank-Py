@@ -1,5 +1,8 @@
 class FramesetArgument(object):
 
+    _argumentType: str
+    _definition: str
+
     """
     A constructor of FramesetArgument class which takes argumentType and definition as input and initializes
     corresponding attributes
@@ -12,8 +15,8 @@ class FramesetArgument(object):
         Definition of the frameset argument
     """
     def __init__(self, argumentType: str, definition: str):
-        self.argumentType = argumentType
-        self.definition = definition
+        self._argumentType = argumentType
+        self._definition = definition
 
     """
     Accessor for argumentType.
@@ -24,7 +27,7 @@ class FramesetArgument(object):
         argumentType.
     """
     def getArgumentType(self) -> str:
-        return self.argumentType
+        return self._argumentType
 
     """
     Accessor for definition.
@@ -35,7 +38,7 @@ class FramesetArgument(object):
         definition.
     """
     def getDefinition(self) -> str:
-        return self.definition
+        return self._definition
 
     """
     Mutator for definition.
@@ -46,7 +49,7 @@ class FramesetArgument(object):
         definition to set.
     """
     def setDefinition(self, definition: str):
-        self.definition = definition
+        self._definition = definition
 
     """
     __str__ converts an FramesetArgument to a string. It returns argument string which is in the form of
@@ -58,4 +61,4 @@ class FramesetArgument(object):
         string form of frameset argument
     """
     def __str__(self) -> str:
-        return self.argumentType + ":" + self.definition
+        return self._argumentType + ":" + self._definition

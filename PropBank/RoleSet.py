@@ -3,6 +3,10 @@ from PropBank.Role import Role
 
 class RoleSet(object):
 
+    _id: str
+    _name: str
+    _roles: list
+
     """
     A constructor of RoleSet class which takes id and name as inputs and initializes corresponding attributes
     with these inputs.
@@ -15,9 +19,9 @@ class RoleSet(object):
         Name of the roleSet
     """
     def __init__(self, id: str, name: str):
-        self.id = id
-        self.name = name
-        self.roles = []
+        self._id = id
+        self._name = name
+        self._roles = []
 
     """
     Accessor for id.
@@ -28,7 +32,7 @@ class RoleSet(object):
         id.
     """
     def getId(self) -> str:
-        return self.id
+        return self._id
 
     """
     Accessor for name.
@@ -39,7 +43,7 @@ class RoleSet(object):
         name.
     """
     def getName(self) -> str:
-        return self.name
+        return self._name
 
     """
     The size method returns the size of the roles list.
@@ -50,7 +54,7 @@ class RoleSet(object):
         the size of the roles list.
     """
     def size(self) -> int:
-        return len(self.roles)
+        return len(self._roles)
 
     """
     The addRole method takes a Role as input and adds it to the roles list.
@@ -61,7 +65,7 @@ class RoleSet(object):
         Role to be added
     """
     def addRole(self, role: Role):
-        self.roles.append(role)
+        self._roles.append(role)
 
     """
     The getRole method returns the role at the given index.
@@ -77,7 +81,7 @@ class RoleSet(object):
         Role at the given index.
     """
     def getRole(self, index: int) -> Role:
-        return self.roles[index]
+        return self._roles[index]
 
     """
     Finds and returns the role with the given argument number n. For example, if n == 0, the method returns
@@ -94,6 +98,6 @@ class RoleSet(object):
         The role with the given argument number n.
     """
     def getRoleWithArgument(self, n: str) -> Role:
-        for role in self.roles:
+        for role in self._roles:
             if role.getN() == n:
                 return role
