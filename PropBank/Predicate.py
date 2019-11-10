@@ -3,8 +3,8 @@ from PropBank.RoleSet import RoleSet
 
 class Predicate(object):
 
-    _lemma: str
-    _roleSets: list
+    __lemma: str
+    __roleSets: list
 
     """
     A constructor of Predicate class which takes lemma as input and initializes lemma with this input.
@@ -16,8 +16,8 @@ class Predicate(object):
         Lemma of the predicate
     """
     def __init__(self, lemma: str):
-        self._lemma = lemma
-        self._roleSets = []
+        self.__lemma = lemma
+        self.__roleSets = []
 
     """
     Accessor for lemma.
@@ -28,7 +28,7 @@ class Predicate(object):
         lemma.
     """
     def getLemma(self) -> str:
-        return self._lemma
+        return self.__lemma
 
     """
     The addRoleSet method takes a RoleSet as input and adds it to the roleSets list.
@@ -39,7 +39,7 @@ class Predicate(object):
         RoleSet to be added
     """
     def addRoleSet(self, roleSet: RoleSet):
-        self._roleSets.append(roleSet)
+        self.__roleSets.append(roleSet)
 
     """
     The size method returns the size of the roleSets list.
@@ -50,7 +50,7 @@ class Predicate(object):
         the size of the roleSets list.
     """
     def size(self) -> int:
-        return len(self._roleSets)
+        return len(self.__roleSets)
 
     """
     The getRoleSet method returns the roleSet at the given index.
@@ -66,7 +66,7 @@ class Predicate(object):
         RoleSet at the given index.
     """
     def getRoleSet(self, index: int) -> RoleSet:
-        return self._roleSets[index]
+        return self.__roleSets[index]
 
     """
     Another getRoleSet method which returns the roleSet with the given roleSet id.
@@ -82,7 +82,7 @@ class Predicate(object):
         RoleSet which has the given id.
     """
     def getRoleSetWithId(self, roleId: str) -> RoleSet:
-        for roleSet in self._roleSets:
+        for roleSet in self.__roleSets:
             if roleSet.getId() == roleId:
                 return roleSet
         return None

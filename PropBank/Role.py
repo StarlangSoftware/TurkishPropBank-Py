@@ -3,9 +3,9 @@ from PropBank.ArgumentType import ArgumentType
 
 class Role(object):
 
-    _description: str
-    _f: str
-    _n: str
+    __description: str
+    __f: str
+    __n: str
 
     """
     A constructor of Role class which takes description, f, and n as inputs and initializes corresponding with
@@ -21,9 +21,9 @@ class Role(object):
         Number of the role
     """
     def __init__(self, description: str, f: str, n: str):
-        self._description = description
-        self._f = f
-        self._n = n
+        self.__description = description
+        self.__f = f
+        self.__n = n
 
     """
     Accessor for description.
@@ -34,7 +34,7 @@ class Role(object):
         description.
     """
     def getDescription(self) -> str:
-        return self._description
+        return self.__description
 
     """
     Accessor for f.
@@ -45,7 +45,7 @@ class Role(object):
         f.
     """
     def getF(self) -> str:
-        return self._f
+        return self.__f
 
     """
     Accessor for n.
@@ -56,7 +56,7 @@ class Role(object):
         n.
     """
     def getN(self) -> str:
-        return self._n
+        return self.__n
 
     """
     Constructs and returns the argument type for this role.
@@ -67,4 +67,4 @@ class Role(object):
         Argument type for this role.
     """
     def getArgumentType(self) -> ArgumentType:
-        return ArgumentType.getArguments("ARG" + self._f.upper())
+        return ArgumentType.getArguments("ARG" + self.__f.upper())

@@ -3,9 +3,9 @@ from PropBank.Role import Role
 
 class RoleSet(object):
 
-    _id: str
-    _name: str
-    _roles: list
+    __id: str
+    __name: str
+    __roles: list
 
     """
     A constructor of RoleSet class which takes id and name as inputs and initializes corresponding attributes
@@ -19,9 +19,9 @@ class RoleSet(object):
         Name of the roleSet
     """
     def __init__(self, id: str, name: str):
-        self._id = id
-        self._name = name
-        self._roles = []
+        self.__id = id
+        self.__name = name
+        self.__roles = []
 
     """
     Accessor for id.
@@ -32,7 +32,7 @@ class RoleSet(object):
         id.
     """
     def getId(self) -> str:
-        return self._id
+        return self.__id
 
     """
     Accessor for name.
@@ -43,7 +43,7 @@ class RoleSet(object):
         name.
     """
     def getName(self) -> str:
-        return self._name
+        return self.__name
 
     """
     The size method returns the size of the roles list.
@@ -54,7 +54,7 @@ class RoleSet(object):
         the size of the roles list.
     """
     def size(self) -> int:
-        return len(self._roles)
+        return len(self.__roles)
 
     """
     The addRole method takes a Role as input and adds it to the roles list.
@@ -65,7 +65,7 @@ class RoleSet(object):
         Role to be added
     """
     def addRole(self, role: Role):
-        self._roles.append(role)
+        self.__roles.append(role)
 
     """
     The getRole method returns the role at the given index.
@@ -81,7 +81,7 @@ class RoleSet(object):
         Role at the given index.
     """
     def getRole(self, index: int) -> Role:
-        return self._roles[index]
+        return self.__roles[index]
 
     """
     Finds and returns the role with the given argument number n. For example, if n == 0, the method returns
@@ -98,6 +98,6 @@ class RoleSet(object):
         The role with the given argument number n.
     """
     def getRoleWithArgument(self, n: str) -> Role:
-        for role in self._roles:
+        for role in self.__roles:
             if role.getN() == n:
                 return role

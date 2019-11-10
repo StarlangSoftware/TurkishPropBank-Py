@@ -4,19 +4,19 @@ import os
 
 class FramesetList(object):
 
-    _frames: list
+    __frames: list
 
     """
     A constructor of FramesetList class which reads all frameset files inside the Predicates folder. For each
     file inside that folder, the constructor creates a Frameset and puts in inside the frames list.
     """
     def __init__(self):
-        self._frames = []
+        self.__frames = []
         for r, d, f in os.walk("Predicates/"):
             for file in f:
                 frameset = Frameset("")
                 frameset.initWithFile(os.path.join(r, file))
-                self._frames.append(frameset)
+                self.__frames.append(frameset)
 
     """
     readFromXmL method searches the Frameset with a given synSetId if there is a Frameset with the given synSet id,
@@ -34,7 +34,7 @@ class FramesetList(object):
     """
     def readFromXml(self, synSetId: str) -> dict:
         frameset = {}
-        for f in self._frames:
+        for f in self.__frames:
             if f.getId() == synSetId:
                 for i in range(len(f.getFramesetArguments())):
                     framesetArgument = f.getFramesetArguments()[i]
@@ -55,7 +55,7 @@ class FramesetList(object):
         true if the Frameset with the given id exists, false otherwise.
     """
     def frameExists(self, synSetId: str) -> bool:
-        for f in self._frames:
+        for f in self.__frames:
             if f.getId == synSetId:
                 return True
         return False
@@ -74,7 +74,7 @@ class FramesetList(object):
         Frameset which has the given id.
     """
     def getFrameSet(self, synSetId: str) -> Frameset:
-        for f in self._frames:
+        for f in self.__frames:
             if f.getId == synSetId:
                 return f
         return None
@@ -88,7 +88,7 @@ class FramesetList(object):
         Frameset to be added
     """
     def addFrameset(self, frameset: Frameset):
-        self._frames.append(frameset)
+        self.__frames.append(frameset)
 
     """
     The getFrameSet method returns the frameset at the given index.
@@ -104,7 +104,7 @@ class FramesetList(object):
         Frameset at the given index.
     """
     def getFrameset(self, index: int) -> Frameset:
-        return self._frames[index]
+        return self.__frames[index]
 
     """
     The size method returns the size of the frames list.
@@ -115,4 +115,4 @@ class FramesetList(object):
         the size of the frames list.
     """
     def size(self) -> int:
-        return len(self._frames)
+        return len(self.__frames)
