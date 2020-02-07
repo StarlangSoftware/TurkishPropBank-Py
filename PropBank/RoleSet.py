@@ -18,8 +18,8 @@ class RoleSet(object):
     name : str
         Name of the roleSet
     """
-    def __init__(self, id: str, name: str):
-        self.__id = id
+    def __init__(self, _id: str, name: str):
+        self.__id = _id
         self.__name = name
         self.__roles = []
 

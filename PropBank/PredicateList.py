@@ -24,9 +24,9 @@ class PredicateList(object):
                     lemma = predicate.attrib["lemma"]
                     newPredicate = Predicate(lemma)
                     for roleSet in predicate:
-                        id = roleSet.attrib["id"]
+                        _id = roleSet.attrib["id"]
                         name = roleSet.attrib["name"]
-                        newRoleSet = RoleSet(id, name)
+                        newRoleSet = RoleSet(_id, name)
                         for roles in roleSet:
                             for role in roles:
                                 if "descr" in role.attrib:

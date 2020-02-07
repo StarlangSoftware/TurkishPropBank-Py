@@ -5,6 +5,7 @@ from enum import Enum, auto
 Enumerated class for argument type.
 """
 
+
 class ArgumentType(Enum):
     NONE = auto()
     PREDICATE = auto()
@@ -40,9 +41,9 @@ class ArgumentType(Enum):
     """
     @staticmethod
     def getArguments(argumentsType: str) -> ArgumentType:
-        for type in ArgumentType:
-            if argumentsType == type.name:
-                return type
+        for argumentType in ArgumentType:
+            if argumentsType == argumentType.name:
+                return argumentType
         return ArgumentType.NONE
 
     """

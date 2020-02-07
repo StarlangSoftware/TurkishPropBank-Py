@@ -16,8 +16,8 @@ class Frameset(object):
     id : str
         Id of the frameset
     """
-    def __init__(self, id: str):
-        self.__id = id
+    def __init__(self, _id: str):
+        self.__id = _id
         self.__framesetArguments = []
 
     """
@@ -54,8 +54,8 @@ class Frameset(object):
         return False
 
     """
-    The addArgument method takes a type and a definition of a FramesetArgument as input, then it creates a new FramesetArgument from these inputs and
-    adds it to the framesetArguments list.
+    The addArgument method takes a type and a definition of a FramesetArgument as input, then it creates a new 
+    FramesetArgument from these inputs and adds it to the framesetArguments list.
 
     PARAMETERS
     ----------
@@ -76,8 +76,8 @@ class Frameset(object):
             self.__framesetArguments.append(arg)
 
     """
-    The deleteArgument method takes a type and a definition of a FramesetArgument as input, then it searches for the FramesetArgument with these type and
-    definition, and if it finds removes it from the framesetArguments list.
+    The deleteArgument method takes a type and a definition of a FramesetArgument as input, then it searches for the 
+    FramesetArgument with these type and definition, and if it finds removes it from the framesetArguments list.
 
     PARAMETERS
     ----------
@@ -122,5 +122,5 @@ class Frameset(object):
     id : str 
         id to set.
     """
-    def setId(self, id: str):
-        self.__id = id
+    def setId(self, _id: str):
+        self.__id = _id
