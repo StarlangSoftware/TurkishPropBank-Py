@@ -8,7 +8,7 @@ class Frameset(object):
     __framesetArguments: list
     __id: str
 
-    def __init__(self, fileName: str):
+    def __init__(self, fileName: str = None):
         """
         Another constructor of Frameset class which takes filename as input and reads the frameset
 
@@ -17,11 +17,15 @@ class Frameset(object):
         fileName : str
             File name of the file to read frameset
         """
-        root = xml.etree.ElementTree.parse(fileName).getroot()
-        self.__id = root.attrib["id"]
-        self.__framesetArguments = []
-        for child in root:
-            self.__framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
+        if fileName is not None:
+            root = xml.etree.ElementTree.parse(fileName).getroot()
+            self.__id = root.attrib["id"]
+            self.__framesetArguments = []
+            for child in root:
+                self.__framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
+        else:
+            self.__id = ""
+            self.__framesetArguments = []
 
     def containsArgument(self, argumentType: ArgumentType) -> bool:
         """
