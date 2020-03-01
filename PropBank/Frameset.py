@@ -22,7 +22,8 @@ class Frameset(object):
             self.__id = root.attrib["id"]
             self.__framesetArguments = []
             for child in root:
-                self.__framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
+                self.__framesetArguments.append(FramesetArgument(child.attrib["name"], child.text,
+                                                                 child.attrib["function"]))
         else:
             self.__id = ""
             self.__framesetArguments = []
@@ -46,7 +47,7 @@ class Frameset(object):
                 return True
         return False
 
-    def addArgument(self, argumentType: str, definition: str):
+    def addArgument(self, argumentType: str, definition: str, function: str = None):
         """
         The addArgument method takes a type and a definition of a FramesetArgument as input, then it creates a new
         FramesetArgument from these inputs and adds it to the framesetArguments list.
@@ -57,6 +58,8 @@ class Frameset(object):
             Type of the new FramesetArgument
         definition : str
             Definition of the new FramesetArgument
+        function: str
+            Function of the new FramesetArgument
         """
         check = False
         for framesetArgument in self.__framesetArguments:
@@ -65,7 +68,7 @@ class Frameset(object):
                 check = True
                 break
         if not check:
-            arg = FramesetArgument(argumentType, definition)
+            arg = FramesetArgument(argumentType, definition, function)
             self.__framesetArguments.append(arg)
 
     def deleteArgument(self, argumentType: str, definition: str):
@@ -130,7 +133,7 @@ class Frameset(object):
         outputFile = open(fileName, mode="w", encoding="utf-8")
         outputFile.write("<FRAMESET id=\"" + self.__id + "\">\n")
         for framesetArgument in self.__framesetArguments:
-            outputFile.write("\t<ARG name=\"" + framesetArgument.getArgumentType() + "\">" +
-                             framesetArgument.getDefinition() + "</ARG>\n")
+            outputFile.write("\t<ARG name=\"" + framesetArgument.getArgumentType() + "\" function=" +
+                             framesetArgument.getFunction() + "\">" + framesetArgument.getDefinition() + "</ARG>\n")
         outputFile.write("</FRAMESET>\n")
         outputFile.close()
