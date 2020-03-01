@@ -133,7 +133,7 @@ class Frameset(object):
         outputFile = open(fileName, mode="w", encoding="utf-8")
         outputFile.write("<FRAMESET id=\"" + self.__id + "\">\n")
         for framesetArgument in self.__framesetArguments:
-            outputFile.write("\t<ARG name=\"" + framesetArgument.getArgumentType() + "\" function=" +
+            outputFile.write("\t<ARG name=\"" + framesetArgument.getArgumentType() + "\" function=\"" +
                              framesetArgument.getFunction() + "\">" + framesetArgument.getDefinition() + "</ARG>\n")
         outputFile.write("</FRAMESET>\n")
         outputFile.close()
