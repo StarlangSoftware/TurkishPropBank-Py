@@ -14,8 +14,7 @@ class FramesetList(object):
         self.__frames = []
         for r, d, f in os.walk("Predicates/"):
             for file in f:
-                frameset = Frameset("")
-                frameset.initWithFile(os.path.join(r, file))
+                frameset = Frameset(os.path.join(r, file))
                 self.__frames.append(frameset)
 
     def readFromXml(self, synSetId: str) -> dict:

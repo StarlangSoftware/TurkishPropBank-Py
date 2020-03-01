@@ -8,19 +8,7 @@ class Frameset(object):
     __framesetArguments: list
     __id: str
 
-    def __init__(self, _id: str):
-        """
-        A constructor of Frameset class which takes id as input and initializes corresponding attribute
-
-        PARAMETERS
-        ----------
-        _id : str
-            Id of the frameset
-        """
-        self.__id = _id
-        self.__framesetArguments = []
-
-    def initWithFile(self, fileName: str):
+    def __init__(self, fileName: str):
         """
         Another constructor of Frameset class which takes filename as input and reads the frameset
 
@@ -31,6 +19,7 @@ class Frameset(object):
         """
         root = xml.etree.ElementTree.parse(fileName).getroot()
         self.__id = root.attrib["id"]
+        self.__framesetArguments = []
         for child in root:
             self.__framesetArguments.append(FramesetArgument(child.attrib["name"], child.text))
 
@@ -124,3 +113,20 @@ class Frameset(object):
             id to set.
         """
         self.__id = _id
+
+    def save(self, fileName: str):
+        """
+        Saves current frameset with the given filename.
+
+        PARAMETERS
+        ----------
+        fileName : str
+            Name of the output file.
+        """
+        outputFile = open(fileName, mode="w", encoding="utf-8")
+        outputFile.write("<FRAMESET id=\"" + self.__id + "\">\n")
+        for framesetArgument in self.__framesetArguments:
+            outputFile.write("\t<ARG name=\"" + framesetArgument.getArgumentType() + "\">" +
+                             framesetArgument.getDefinition() + "</ARG>\n")
+        outputFile.write("</FRAMESET>\n")
+        outputFile.close()
