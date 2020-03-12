@@ -1,54 +1,6 @@
-For Developers
-============
-You can also see either [Java](https://github.com/olcaytaner/TurkishPropBank) 
-or [C++](https://github.com/olcaytaner/TurkishPropBank-CPP) repository.
-
-## Requirements
-
-* [Python 3.7 or higher](#python)
-* [Git](#git)
-
-### Python 
-
-To check if you have a compatible version of Python installed, use the following command:
-
-    python -V
-    
-You can find the latest version of Python [here](https://www.python.org/downloads/).
-
-### Git
-
-Install the [latest version of Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
-## Download Code
-
-In order to work on code, create a fork from GitHub page. 
-Use Git for cloning the code to your local or below line for Ubuntu:
-
-	git clone <your-fork-git-link>
-
-A directory called PropBank will be created. Or you can use below link for exploring the code:
-
-	git clone https://github.com/olcaytaner/TurkishPropBank-Py.git
-
-## Open project with Pycharm IDE
-
-Steps for opening the cloned project:
-
-* Start IDE
-* Select **File | Open** from main menu
-* Choose `TurkishPropBank-PY` file
-* Select open as project option
-* Couple of seconds, dependencies will be downloaded. 
-
-
-## Compile
-
-**From IDE**
-
-After being done with the downloading and Maven indexing, select **Build Project** option from **Build** menu. After compilation process, user can run PropBank.
-
 # PropBank
+
+Turkish PropBank (TRopBank) is a corpus of over 17.000 Turkish verbs, each annotated with their syntactic arguments and thematic roles. Arguments are bits of essential information attached to a verb (such as subject or object), and thematic roles are semantic classifications associated with these arguments (such as agent or patient). This resource allows matching between the syntax layer and the semantics layer for the processing of Turkish data.
 
 In the field of SRL, PropBank is one of the studies widely recognized by the computational linguistics communities. PropBank is the bank of propositions where predicate- argument information of the corpora is annotated, and the semantic roles or arguments that each verb can take are posited.
 
@@ -99,3 +51,53 @@ The structure of a sample frameset is as follows:
 	</FRAMESET>
 
 Each entry in the frame file is enclosed by <FRAMESET> and </FRAMESET> tags. id shows the unique identifier given to the frameset, which is the same ID in the synset file of the corresponding verb sense. <ARG> tags denote the semantic roles of the corresponding frame.
+
+For Developers
+============
+You can also see either [Java](https://github.com/olcaytaner/TurkishPropBank) 
+or [C++](https://github.com/olcaytaner/TurkishPropBank-CPP) repository.
+
+## Requirements
+
+* [Python 3.7 or higher](#python)
+* [Git](#git)
+
+### Python 
+
+To check if you have a compatible version of Python installed, use the following command:
+
+    python -V
+    
+You can find the latest version of Python [here](https://www.python.org/downloads/).
+
+### Git
+
+Install the [latest version of Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+## Download Code
+
+In order to work on code, create a fork from GitHub page. 
+Use Git for cloning the code to your local or below line for Ubuntu:
+
+	git clone <your-fork-git-link>
+
+A directory called PropBank will be created. Or you can use below link for exploring the code:
+
+	git clone https://github.com/olcaytaner/TurkishPropBank-Py.git
+
+## Open project with Pycharm IDE
+
+Steps for opening the cloned project:
+
+* Start IDE
+* Select **File | Open** from main menu
+* Choose `TurkishPropBank-PY` file
+* Select open as project option
+* Couple of seconds, dependencies will be downloaded. 
+
+
+## Compile
+
+**From IDE**
+
+After being done with the downloading and Maven indexing, select **Build Project** option from **Build** menu. After compilation process, user can run PropBank.
