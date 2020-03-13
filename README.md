@@ -101,3 +101,30 @@ Steps for opening the cloned project:
 **From IDE**
 
 After being done with the downloading and Maven indexing, select **Build Project** option from **Build** menu. After compilation process, user can run PropBank.
+
+Detailed Description
+============
++ [FramesetList](#framesetlist)
++ [Frameset](#frameset)
+
+## FramesetList
+
+Frame listesini okumak ve tüm Frameleri hafızada tutmak için
+
+	a = FramesetList();
+
+Framesetleri tek tek gezmek için
+
+	for (int i = 0; i < a.size(); i++){
+		Frameset frameset = a.getFrameset(i);
+	}
+
+Bir fiile ait olan Frameseti bulmak için
+
+	frameset = a.getFrameSet("TUR10-1234560")
+
+## Frameset
+
+Bir framesetin tüm argümanlarını bulmak için
+
+	List<FramesetArgument> getFramesetArguments()
