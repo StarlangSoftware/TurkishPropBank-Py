@@ -111,13 +111,12 @@ Detailed Description
 
 Frame listesini okumak ve tüm Frameleri hafızada tutmak için
 
-	a = FramesetList();
+	a = FramesetList()
 
 Framesetleri tek tek gezmek için
 
-	for (int i = 0; i < a.size(); i++){
-		Frameset frameset = a.getFrameset(i);
-	}
+	for i in range(a.size()):
+		frameset = a.getFrameset(i)
 
 Bir fiile ait olan Frameseti bulmak için
 
