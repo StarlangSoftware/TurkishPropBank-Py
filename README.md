@@ -126,4 +126,4 @@ Bir fiile ait olan Frameseti bulmak için
 
 Bir framesetin tüm argümanlarını bulmak için
 
-	List<FramesetArgument> getFramesetArguments()
+	getFramesetArguments(self) -> list
