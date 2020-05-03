@@ -1,5 +1,9 @@
 # PropBank
 
+You can also see [Java](https://github.com/starlangsoftware/TurkishPropBank), [C++](https://github.com/starlangsoftware/TurkishPropBank-CPP), or [C#](https://github.com/starlangsoftware/TurkishPropBank-CS) repository.
+
+## PropBank
+
 Turkish PropBank (TRopBank) is a corpus of over 17.000 Turkish verbs, each annotated with their syntactic arguments and thematic roles. Arguments are bits of essential information attached to a verb (such as subject or object), and thematic roles are semantic classifications associated with these arguments (such as agent or patient). This resource allows matching between the syntax layer and the semantics layer for the processing of Turkish data.
 
 In the field of SRL, PropBank is one of the studies widely recognized by the computational linguistics communities. PropBank is the bank of propositions where predicate- argument information of the corpora is annotated, and the semantic roles or arguments that each verb can take are posited.
@@ -127,3 +131,39 @@ Bir fiile ait olan Frameseti bulmak için
 Bir framesetin tüm argümanlarını bulmak için
 
 	getFramesetArguments(self) -> list
+
+## Cite
+If you use this resource on your research, please cite the following paper: 
+
+```
+@article{ak2018,
+	journal = "Turkish Journal of Electrical Engineering and Computer Science",
+	issn = "1300-0632",
+	address = "T\”{U}B\.{I}TAK",
+	year = "2018",
+	volume = "26",
+	pages = "570 - 581",
+	title = "Construction of a {T}urkish proposition bank",
+	author = "Ak, K. and Y{\i}ld{\i}z, O. T. and Esgel, V. and Toprak, C."
+}
+
+@inproceedings{ak2019
+    title = "Automatic {P}ropbank Generation for {T}urkish",
+    author = "AK, Koray  and
+      Y{\i}ld{\i}z, Olcay Taner",
+    booktitle = "Proceedings of the International Conference on Recent Advances in Natural Language Processing (RANLP 2019)",
+    month = sep,
+    year = "2019",
+    address = "Varna, Bulgaria",
+    publisher = "INCOMA Ltd.",
+    url = "https://www.aclweb.org/anthology/R19-1005",
+    pages = "33--41",
+}
+
+@inproceedings{ak2018b, 
+	author={K. {Ak} and Ö. {Bakay} and O. {Taner Yıldız}}, 
+	booktitle={2018 3rd International Conference on Computer Science and Engineering (UBMK)}, 
+	title={Comparison of Turkish Proposition Banks by Frame Matching}, 
+	year={2018}, 
+	pages={352-356}
+}
