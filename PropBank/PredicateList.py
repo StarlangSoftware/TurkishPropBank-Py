@@ -11,13 +11,13 @@ class PredicateList(object):
 
     __list: dict
 
-    def __init__(self):
+    def __init__(self, directory = "Frames/"):
         """
         A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
         file inside that folder, the constructor creates a Predicate and puts in inside the list dictionary.
         """
         self.__list = {}
-        for r, d, f in os.walk("Frames/"):
+        for r, d, f in os.walk(directory):
             for file in f:
                 root = xml.etree.ElementTree.parse(os.path.join(r, file)).getroot()
                 for predicate in root:

@@ -6,13 +6,13 @@ class FramesetList(object):
 
     __frames: list
 
-    def __init__(self):
+    def __init__(self, directory = "Predicates/"):
         """
         A constructor of FramesetList class which reads all frameset files inside the Predicates folder. For each
         file inside that folder, the constructor creates a Frameset and puts in inside the frames list.
         """
         self.__frames = []
-        for r, d, f in os.walk("Predicates/"):
+        for r, d, f in os.walk(directory):
             for file in f:
                 frameset = Frameset(os.path.join(r, file))
                 self.__frames.append(frameset)
@@ -59,13 +59,13 @@ class FramesetList(object):
                 return True
         return False
 
-    def getFrameSet(self, synSetId: str) -> Frameset:
+    def getFrameSet(self, synSetIdOrIndex) -> Frameset:
         """
-        getFrameSet method returns the Frameset with the given synSet id.
+        getFrameSet method returns the Frameset with the given synSet id or index
 
         PARAMETERS
         ----------
-        synSetId : str
+        synSetIdOrIndex
             Id of the searched Frameset
 
         RETURNS
@@ -73,9 +73,12 @@ class FramesetList(object):
         Frameset
             Frameset which has the given id.
         """
-        for f in self.__frames:
-            if f.getId == synSetId:
-                return f
+        if isinstance(synSetIdOrIndex, str):
+            for f in self.__frames:
+                if f.getId == synSetIdOrIndex:
+                   return f
+        elif isinstance(synSetIdOrIndex, int):
+            return self.__frames[synSetIdOrIndex]
         return None
 
     def addFrameset(self, frameset: Frameset):
@@ -88,22 +91,6 @@ class FramesetList(object):
             Frameset to be added
         """
         self.__frames.append(frameset)
-
-    def getFrameset(self, index: int) -> Frameset:
-        """
-        The getFrameSet method returns the frameset at the given index.
-
-        PARAMETERS
-        ----------
-        index : int
-            Index of the frameset
-
-        RETURNS
-        -------
-        Frameset
-            Frameset at the given index.
-        """
-        return self.__frames[index]
 
     def size(self) -> int:
         """
