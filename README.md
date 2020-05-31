@@ -58,8 +58,6 @@ Each entry in the frame file is enclosed by <FRAMESET> and </FRAMESET> tags. id 
 
 For Developers
 ============
-You can also see either [Java](https://github.com/olcaytaner/TurkishPropBank) 
-or [C++](https://github.com/olcaytaner/TurkishPropBank-CPP) repository.
 
 ## Requirements
 
@@ -87,7 +85,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 A directory called PropBank will be created. Or you can use below link for exploring the code:
 
-	git clone https://github.com/olcaytaner/TurkishPropBank-Py.git
+	git clone https://github.com/starlangsoftware/TurkishPropBank-Py.git
 
 ## Open project with Pycharm IDE
 
@@ -98,13 +96,6 @@ Steps for opening the cloned project:
 * Choose `TurkishPropBank-PY` file
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
-
-
-## Compile
-
-**From IDE**
-
-After being done with the downloading and Maven indexing, select **Build Project** option from **Build** menu. After compilation process, user can run PropBank.
 
 Detailed Description
 ============
