@@ -4,9 +4,9 @@ setup(
     name='NlpToolkit-PropBank',
     version='1.0.14',
     packages=['PropBank'],
-    url='https://github.com/olcaytaner/TurkishPropbank-Py',
+    url='https://github.com/StarlangSoftware/TurkishPropbank-Py',
     license='',
     author='olcaytaner',
-    author_email='olcaytaner@isikun.edu.tr',
+    author_email='olcay.yildiz@ozyegin.edu.tr',
     description='Turkish PropBank'
 )
