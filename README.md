@@ -41,3 +41,29 @@ Steps for opening the cloned project:
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
 
+Detailed Description
+============
+
++ [FramesetList](#framesetlist)
++ [Frameset](#frameset)
+
+## FramesetList
+
+Frame listesini okumak ve tüm Frameleri hafızada tutmak için
+
+	a = FramesetList()
+
+Framesetleri tek tek gezmek için
+
+	for i in range(a.size()):
+		frameset = a.getFrameset(i)
+
+Bir fiile ait olan Frameseti bulmak için
+
+	frameset = a.getFrameSet("TUR10-1234560")
+
+## Frameset
+
+Bir framesetin tüm argümanlarını bulmak için
+
+	getFramesetArguments(self) -> list
