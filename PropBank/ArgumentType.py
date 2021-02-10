@@ -41,7 +41,7 @@ class ArgumentType(Enum):
             Type of the argument in ArgumentType form
         """
         for argumentType in ArgumentType:
-            if argumentsType == argumentType.name:
+            if argumentsType.upper() == argumentType.name:
                 return argumentType
         return ArgumentType.NONE
 
