@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='NlpToolkit-PropBank',
-    version='1.0.15',
+    version='1.0.16',
     packages=['PropBank'],
     url='https://github.com/StarlangSoftware/TurkishPropbank-Py',
     license='',

@@ -55,7 +55,7 @@ class FramesetList(object):
             true if the Frameset with the given id exists, false otherwise.
         """
         for f in self.__frames:
-            if f.getId == synSetId:
+            if f.getId() == synSetId:
                 return True
         return False
 
@@ -75,7 +75,7 @@ class FramesetList(object):
         """
         if isinstance(synSetIdOrIndex, str):
             for f in self.__frames:
-                if f.getId == synSetIdOrIndex:
+                if f.getId() == synSetIdOrIndex:
                    return f
         elif isinstance(synSetIdOrIndex, int):
             return self.__frames[synSetIdOrIndex]
