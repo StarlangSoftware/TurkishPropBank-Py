@@ -6,7 +6,7 @@ from PropBank.PredicateList import PredicateList
 class PredicateListTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.predicateList = PredicateList("../Frames/")
+        self.predicateList = PredicateList()
 
     def test_PredicateSize(self):
         self.assertEquals(8656, self.predicateList.size())

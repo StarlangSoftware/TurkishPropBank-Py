@@ -2,6 +2,8 @@ import os
 import xml.etree.ElementTree
 from collections import KeysView
 
+import pkg_resources
+
 from PropBank.Predicate import Predicate
 from PropBank.RoleSet import RoleSet
 from PropBank.Role import Role
@@ -11,7 +13,7 @@ class PredicateList(object):
 
     __list: dict
 
-    def __init__(self, directory = "Frames/"):
+    def __init__(self, directory = pkg_resources.resource_filename(__name__, 'Frames')):
         """
         A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
         file inside that folder, the constructor creates a Predicate and puts in inside the list dictionary.

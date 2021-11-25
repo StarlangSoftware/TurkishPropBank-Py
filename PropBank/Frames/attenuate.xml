@@ -1,0 +1,10 @@
+<frameset>
+  <predicate lemma="attenuate">
+    <roleset id="attenuate.01" name="rarefy">
+      <roles>
+        <role descr="agent, cause" f="pag" n="0"/>
+        <role descr="thing lessened" f="ppt" n="1"/>
+      </roles>
+    </roleset>
+  </predicate>
+</frameset>

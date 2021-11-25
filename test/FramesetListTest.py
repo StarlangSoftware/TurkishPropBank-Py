@@ -6,7 +6,7 @@ from PropBank.FramesetList import FramesetList
 class FramesetListTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.framesetList = FramesetList("../Predicates/")
+        self.framesetList = FramesetList()
 
     def test_Frames(self):
         self.assertEquals(17691, self.framesetList.size())
