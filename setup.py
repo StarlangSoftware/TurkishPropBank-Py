@@ -6,10 +6,9 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='NlpToolkit-PropBank',
-    version='1.0.18',
-    packages=['PropBank', 'PropBank.Frames', 'PropBank.Predicates'],
-    package_data={'PropBank.Frames': ['*.xml'],
-                  'PropBank.Predicates': ['*.xml']},
+    version='1.0.19',
+    packages=['PropBank', 'PropBank.data'],
+    package_data={'PropBank.data': ['*.xml']},
     url='https://github.com/StarlangSoftware/TurkishPropbank-Py',
     license='',
     author='olcaytaner',

@@ -1,23 +1,25 @@
+import xml
+
 import pkg_resources
 
 from PropBank.Frameset import Frameset
-import os
+import xml.etree.ElementTree
 
 
 class FramesetList(object):
 
     __frames: list
 
-    def __init__(self, directory = pkg_resources.resource_filename(__name__, 'Predicates')):
+    def __init__(self, fileName = pkg_resources.resource_filename(__name__, 'data/turkish-propbank.xml')):
         """
         A constructor of FramesetList class which reads all frameset files inside the Predicates folder. For each
         file inside that folder, the constructor creates a Frameset and puts in inside the frames list.
         """
         self.__frames = []
-        for r, d, f in os.walk(directory):
-            for file in f:
-                frameset = Frameset(os.path.join(r, file))
-                self.__frames.append(frameset)
+        root = xml.etree.ElementTree.parse(fileName).getroot()
+        for framesetNode in root:
+            frameset = Frameset(framesetNode)
+            self.__frames.append(frameset)
 
     def readFromXml(self, synSetId: str) -> dict:
         """

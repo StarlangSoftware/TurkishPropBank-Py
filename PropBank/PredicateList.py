@@ -13,40 +13,39 @@ class PredicateList(object):
 
     __list: dict
 
-    def __init__(self, directory = pkg_resources.resource_filename(__name__, 'Frames')):
+    def __init__(self, fileName = pkg_resources.resource_filename(__name__, 'data/english-propbank.xml')):
         """
         A constructor of PredicateList class which reads all predicate files inside the 'Frames' folder. For each
         file inside that folder, the constructor creates a Predicate and puts in inside the list dictionary.
         """
         self.__list = {}
-        for r, d, f in os.walk(directory):
-            for file in f:
-                root = xml.etree.ElementTree.parse(os.path.join(r, file)).getroot()
-                for predicate in root:
-                    lemma = predicate.attrib["lemma"]
-                    newPredicate = Predicate(lemma)
-                    for roleSet in predicate:
-                        _id = roleSet.attrib["id"]
-                        name = roleSet.attrib["name"]
-                        newRoleSet = RoleSet(_id, name)
-                        for roles in roleSet:
-                            for role in roles:
-                                if "descr" in role.attrib:
-                                    descr = role.attrib["descr"]
-                                else:
-                                    descr = ""
-                                if "f" in role.attrib:
-                                    f = role.attrib["f"]
-                                else:
-                                    f = ""
-                                if "n" in role.attrib:
-                                    n = role.attrib["n"]
-                                else:
-                                    n = ""
-                                newRole = Role(descr, f, n)
-                                newRoleSet.addRole(newRole)
-                        newPredicate.addRoleSet(newRoleSet)
-                    self.__list[lemma] = newPredicate
+        root = xml.etree.ElementTree.parse(fileName).getroot()
+        for frameset in root:
+            for predicate in frameset:
+                lemma = predicate.attrib["lemma"]
+                newPredicate = Predicate(lemma)
+                for roleSet in predicate:
+                    _id = roleSet.attrib["id"]
+                    name = roleSet.attrib["name"]
+                    newRoleSet = RoleSet(_id, name)
+                    for roles in roleSet:
+                        for role in roles:
+                            if "descr" in role.attrib:
+                                descr = role.attrib["descr"]
+                            else:
+                                descr = ""
+                            if "f" in role.attrib:
+                                f = role.attrib["f"]
+                            else:
+                                f = ""
+                            if "n" in role.attrib:
+                                n = role.attrib["n"]
+                            else:
+                                n = ""
+                            newRole = Role(descr, f, n)
+                            newRoleSet.addRole(newRole)
+                    newPredicate.addRoleSet(newRoleSet)
+                self.__list[lemma] = newPredicate
 
     def size(self):
         """
