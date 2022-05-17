@@ -2,11 +2,11 @@ from setuptools import setup
 
 from pathlib import Path
 this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name='NlpToolkit-PropBank',
-    version='1.0.19',
+    version='1.0.20',
     packages=['PropBank', 'PropBank.data'],
     package_data={'PropBank.data': ['*.xml']},
     url='https://github.com/StarlangSoftware/TurkishPropbank-Py',
