@@ -1,6 +1,6 @@
 class Argument(object):
 
-    __argumentType: str
+    __argument_type: str
     __id: str
 
     def __init__(self, argument: str):
@@ -15,12 +15,14 @@ class Argument(object):
             Argument string containing the argumentType and id
         """
         if "$" in argument:
-            self.__argumentType = argument[0:argument.index("$")]
+            self.__argument_type = argument[0:argument.index("$")]
             self.__id = argument[argument.index("$") + 1:]
         else:
-            self.__argumentType = "NONE"
+            self.__argument_type = "NONE"
 
-    def initWithId(self, argumentType: str, _id: str):
+    def initWithId(self,
+                   argumentType: str,
+                   _id: str):
         """
         Another constructor of Argument class which takes argumentType and id as inputs and initializes corresponding 
         attributes
@@ -32,7 +34,7 @@ class Argument(object):
         _id : str 
             Id of the argument
         """
-        self.__argumentType = argumentType
+        self.__argument_type = argumentType
         self.__id = _id
 
     def getArgumentType(self) -> str:
@@ -44,7 +46,7 @@ class Argument(object):
         str
             argumentType.
         """
-        return self.__argumentType
+        return self.__argument_type
 
     def getId(self) -> str:
         """
@@ -67,7 +69,7 @@ class Argument(object):
         str
             string form of argument
         """
-        if self.__argumentType == "NONE":
-            return self.__argumentType
+        if self.__argument_type == "NONE":
+            return self.__argument_type
         else:
-            return self.__argumentType + "$" + self.__id
+            return self.__argument_type + "$" + self.__id

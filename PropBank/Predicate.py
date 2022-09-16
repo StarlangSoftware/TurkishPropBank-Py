@@ -4,7 +4,7 @@ from PropBank.RoleSet import RoleSet
 class Predicate(object):
 
     __lemma: str
-    __roleSets: list
+    __role_sets: list
 
     def __init__(self, lemma: str):
         """
@@ -17,7 +17,7 @@ class Predicate(object):
             Lemma of the predicate
         """
         self.__lemma = lemma
-        self.__roleSets = []
+        self.__role_sets = []
 
     def getLemma(self) -> str:
         """
@@ -39,7 +39,7 @@ class Predicate(object):
         roleSet : RoleSet
             RoleSet to be added
         """
-        self.__roleSets.append(roleSet)
+        self.__role_sets.append(roleSet)
 
     def size(self) -> int:
         """
@@ -50,7 +50,7 @@ class Predicate(object):
         int
             the size of the roleSets list.
         """
-        return len(self.__roleSets)
+        return len(self.__role_sets)
 
     def getRoleSet(self, index: int) -> RoleSet:
         """
@@ -66,7 +66,7 @@ class Predicate(object):
         RoleSet
             RoleSet at the given index.
         """
-        return self.__roleSets[index]
+        return self.__role_sets[index]
 
     def getRoleSetWithId(self, roleId: str) -> RoleSet:
         """
@@ -82,7 +82,10 @@ class Predicate(object):
         RoleSet
             RoleSet which has the given id.
         """
-        for roleSet in self.__roleSets:
-            if roleSet.getId() == roleId:
-                return roleSet
+        for role_set in self.__role_sets:
+            if role_set.getId() == roleId:
+                return role_set
         return None
+
+    def __repr__(self):
+        return f"{self.__lemma} {self.__role_sets}"

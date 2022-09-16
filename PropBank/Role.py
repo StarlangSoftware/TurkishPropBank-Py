@@ -7,7 +7,10 @@ class Role(object):
     __f: str
     __n: str
 
-    def __init__(self, description: str, f: str, n: str):
+    def __init__(self,
+                 description: str,
+                 f: str,
+                 n: str):
         """
         A constructor of Role class which takes description, f, and n as inputs and initializes corresponding with
         these inputs.
@@ -68,3 +71,6 @@ class Role(object):
             Argument type for this role.
         """
         return ArgumentType.getArguments("ARG" + self.__f.upper())
+
+    def __repr__(self):
+        return f"{self.__f} {self.__n} {self.__description}"

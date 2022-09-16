@@ -17,8 +17,8 @@ class FramesetList(object):
         """
         self.__frames = []
         root = xml.etree.ElementTree.parse(fileName).getroot()
-        for framesetNode in root:
-            frameset = Frameset(framesetNode)
+        for frameset_node in root:
+            frameset = Frameset(frameset_node)
             self.__frames.append(frameset)
 
     def readFromXml(self, synSetId: str) -> dict:
@@ -40,8 +40,8 @@ class FramesetList(object):
         for f in self.__frames:
             if f.getId() == synSetId:
                 for i in range(len(f.getFramesetArguments())):
-                    framesetArgument = f.getFramesetArguments()[i]
-                    frameset[framesetArgument.getArgumentType()] = framesetArgument.getDefinition()
+                    frameset_argument = f.getFramesetArguments()[i]
+                    frameset[frameset_argument.getArgumentType()] = frameset_argument.getDefinition()
         return frameset
 
     def frameExists(self, synSetId: str) -> bool:

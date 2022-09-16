@@ -40,9 +40,9 @@ class ArgumentType(Enum):
         ArgumentType
             Type of the argument in ArgumentType form
         """
-        for argumentType in ArgumentType:
-            if argumentsType.upper() == argumentType.name:
-                return argumentType
+        for argument_type in ArgumentType:
+            if argumentsType.upper() == argument_type.name:
+                return argument_type
         return ArgumentType.NONE
 
     @staticmethod

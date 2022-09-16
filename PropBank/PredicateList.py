@@ -20,15 +20,15 @@ class PredicateList(object):
         """
         self.__list = {}
         root = xml.etree.ElementTree.parse(fileName).getroot()
-        for frameset in root:
-            for predicate in frameset:
+        for frame_set in root:
+            for predicate in frame_set:
                 lemma = predicate.attrib["lemma"]
-                newPredicate = Predicate(lemma)
-                for roleSet in predicate:
-                    _id = roleSet.attrib["id"]
-                    name = roleSet.attrib["name"]
-                    newRoleSet = RoleSet(_id, name)
-                    for roles in roleSet:
+                new_predicate = Predicate(lemma)
+                for role_set in predicate:
+                    _id = role_set.attrib["id"]
+                    name = role_set.attrib["name"]
+                    new_role_set = RoleSet(_id, name)
+                    for roles in role_set:
                         for role in roles:
                             if "descr" in role.attrib:
                                 descr = role.attrib["descr"]
@@ -43,9 +43,9 @@ class PredicateList(object):
                             else:
                                 n = ""
                             newRole = Role(descr, f, n)
-                            newRoleSet.addRole(newRole)
-                    newPredicate.addRoleSet(newRoleSet)
-                self.__list[lemma] = newPredicate
+                            new_role_set.addRole(newRole)
+                    new_predicate.addRoleSet(new_role_set)
+                self.__list[lemma] = new_predicate
 
     def size(self):
         """

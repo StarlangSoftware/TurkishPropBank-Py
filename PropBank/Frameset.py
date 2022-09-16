@@ -6,7 +6,7 @@ from PropBank.FramesetArgument import FramesetArgument
 
 class Frameset(object):
 
-    __framesetArguments: list
+    __frameset_arguments: list
     __id: str
 
     def __init__(self, framesetNode: Element = None):
@@ -20,13 +20,13 @@ class Frameset(object):
         """
         if framesetNode is not None:
             self.__id = framesetNode.attrib["id"]
-            self.__framesetArguments = []
+            self.__frameset_arguments = []
             for child in framesetNode:
-                self.__framesetArguments.append(FramesetArgument(child.attrib["name"], child.text,
-                                                                 child.attrib["function"]))
+                self.__frameset_arguments.append(FramesetArgument(child.attrib["name"], child.text,
+                                                                  child.attrib["function"]))
         else:
             self.__id = ""
-            self.__framesetArguments = []
+            self.__frameset_arguments = []
 
     def containsArgument(self, argumentType: ArgumentType) -> bool:
         """
@@ -42,12 +42,15 @@ class Frameset(object):
         bool
             true if the Argument with the given argumentType exists, false otherwise.
         """
-        for framesetArgument in self.__framesetArguments:
-            if ArgumentType.getArguments(framesetArgument.getArgumentType()) == argumentType:
+        for frameset_argument in self.__frameset_arguments:
+            if ArgumentType.getArguments(frameset_argument.getArgumentType()) == argumentType:
                 return True
         return False
 
-    def addArgument(self, argumentType: str, definition: str, function: str = None):
+    def addArgument(self,
+                    argumentType: str,
+                    definition: str,
+                    function: str = None):
         """
         The addArgument method takes a type and a definition of a FramesetArgument as input, then it creates a new
         FramesetArgument from these inputs and adds it to the framesetArguments list.
@@ -62,16 +65,18 @@ class Frameset(object):
             Function of the new FramesetArgument
         """
         check = False
-        for framesetArgument in self.__framesetArguments:
-            if framesetArgument.getArgumentType() == argumentType:
-                framesetArgument.setDefinition(definition)
+        for frameset_argument in self.__frameset_arguments:
+            if frameset_argument.getArgumentType() == argumentType:
+                frameset_argument.setDefinition(definition)
                 check = True
                 break
         if not check:
             arg = FramesetArgument(argumentType, definition, function)
-            self.__framesetArguments.append(arg)
+            self.__frameset_arguments.append(arg)
 
-    def deleteArgument(self, argumentType: str, definition: str):
+    def deleteArgument(self,
+                       argumentType: str,
+                       definition: str):
         """
         The deleteArgument method takes a type and a definition of a FramesetArgument as input, then it searches for the
         FramesetArgument with these type and definition, and if it finds removes it from the framesetArguments list.
@@ -83,9 +88,9 @@ class Frameset(object):
         definition : str
             Definition of the to be deleted FramesetArgument
         """
-        for framesetArgument in self.__framesetArguments:
-            if framesetArgument.getArgumentType() == argumentType and framesetArgument.getDefinition() == definition:
-                self.__framesetArguments.remove(framesetArgument)
+        for frameset_argument in self.__frameset_arguments:
+            if frameset_argument.getArgumentType() == argumentType and frameset_argument.getDefinition() == definition:
+                self.__frameset_arguments.remove(frameset_argument)
                 break
 
     def getFramesetArguments(self) -> list:
@@ -97,7 +102,7 @@ class Frameset(object):
         list
             framesetArguments.
         """
-        return self.__framesetArguments
+        return self.__frameset_arguments
 
     def getId(self) -> str:
         """
@@ -130,10 +135,13 @@ class Frameset(object):
         fileName : str
             Name of the output file.
         """
-        outputFile = open(fileName, mode="w", encoding="utf-8")
-        outputFile.write("<FRAMESET id=\"" + self.__id + "\">\n")
-        for framesetArgument in self.__framesetArguments:
-            outputFile.write("\t<ARG name=\"" + framesetArgument.getArgumentType() + "\" function=\"" +
-                             framesetArgument.getFunction() + "\">" + framesetArgument.getDefinition() + "</ARG>\n")
-        outputFile.write("</FRAMESET>\n")
-        outputFile.close()
+        output_file = open(fileName, mode="w", encoding="utf-8")
+        output_file.write("<FRAMESET id=\"" + self.__id + "\">\n")
+        for frameset_argument in self.__frameset_arguments:
+            output_file.write("\t<ARG name=\"" + frameset_argument.getArgumentType() + "\" function=\"" +
+                             frameset_argument.getFunction() + "\">" + frameset_argument.getDefinition() + "</ARG>\n")
+        output_file.write("</FRAMESET>\n")
+        output_file.close()
+
+    def __repr__(self):
+        return f"{self.__id} {self.__frameset_arguments}"

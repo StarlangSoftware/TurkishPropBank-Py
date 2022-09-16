@@ -9,13 +9,13 @@ class FramesetListTest(unittest.TestCase):
         self.framesetList = FramesetList()
 
     def test_Frames(self):
-        self.assertEquals(17691, self.framesetList.size())
+        self.assertEqual(17691, self.framesetList.size())
 
     def test_ArgSize(self):
         count = 0
         for i in range(self.framesetList.size()):
             count += len(self.framesetList.getFrameSet(i).getFramesetArguments())
-        self.assertEquals(29759, count)
+        self.assertEqual(29759, count)
 
     def test_ArgName(self):
         nameList = {}
@@ -25,11 +25,11 @@ class FramesetListTest(unittest.TestCase):
                     nameList[argument.getArgumentType()] = nameList[argument.getArgumentType()] + 1
                 else:
                     nameList[argument.getArgumentType()] = 1
-        self.assertEquals(14668, nameList["ARG0"])
-        self.assertEquals(13126, nameList["ARG1"])
-        self.assertEquals(1886, nameList["ARG2"])
-        self.assertEquals(78, nameList["ARG3"])
-        self.assertEquals(1, nameList["ARG4"])
+        self.assertEqual(14668, nameList["ARG0"])
+        self.assertEqual(13126, nameList["ARG1"])
+        self.assertEqual(1886, nameList["ARG2"])
+        self.assertEqual(78, nameList["ARG3"])
+        self.assertEqual(1, nameList["ARG4"])
 
     def test_ArgFunction(self):
         functionList = {}
@@ -39,17 +39,17 @@ class FramesetListTest(unittest.TestCase):
                     functionList[argument.getFunction()] = functionList[argument.getFunction()] + 1
                 else:
                     functionList[argument.getFunction()] = 1
-        self.assertEquals(481, functionList["com"])
-        self.assertEquals(14, functionList["ext"])
-        self.assertEquals(814, functionList["loc"])
-        self.assertEquals(198, functionList["rec"])
-        self.assertEquals(14, functionList["pat"])
-        self.assertEquals(10687, functionList["ppt"])
-        self.assertEquals(605, functionList["src"])
-        self.assertEquals(801, functionList["gol"])
-        self.assertEquals(156, functionList["tmp"])
-        self.assertEquals(14557, functionList["pag"])
-        self.assertEquals(1432, functionList["dir"])
+        self.assertEqual(481, functionList["com"])
+        self.assertEqual(14, functionList["ext"])
+        self.assertEqual(814, functionList["loc"])
+        self.assertEqual(198, functionList["rec"])
+        self.assertEqual(14, functionList["pat"])
+        self.assertEqual(10687, functionList["ppt"])
+        self.assertEqual(605, functionList["src"])
+        self.assertEqual(801, functionList["gol"])
+        self.assertEqual(156, functionList["tmp"])
+        self.assertEqual(14557, functionList["pag"])
+        self.assertEqual(1432, functionList["dir"])
 
 if __name__ == '__main__':
     unittest.main()
