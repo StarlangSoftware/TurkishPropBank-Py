@@ -60,7 +60,8 @@ Video Lectures
 For Developers
 ============
 
-You can also see [Cython](https://github.com/starlangsoftware/TurkishPropBank-Cy), [Java](https://github.com/starlangsoftware/TurkishPropBank), [C++](https://github.com/starlangsoftware/TurkishPropBank-CPP), [C](https://github.com/starlangsoftware/TurkishPropBank-C), [Swift](https://github.com/starlangsoftware/TurkishPropBank-Swift), [Js](https://github.com/starlangsoftware/TurkishPropBank-Js), or [C#](https://github.com/starlangsoftware/TurkishPropBank-CS) repository.
+You can also see [Cython](https://github.com/starlangsoftware/TurkishPropBank-Cy), [Java](https://github.com/starlangsoftware/TurkishPropBank), [C++](https://github.com/starlangsoftware/TurkishPropBank-CPP), [C](https://github.com/starlangsoftware/TurkishPropBank-C), [Swift](https://github.com/starlangsoftware/TurkishPropBank-Swift), [Js](https://github.com/starlangsoftware/TurkishPropBank-Js),
+[Php](https://github.com/starlangsoftware/TurkishPropBank-Php), or [C#](https://github.com/starlangsoftware/TurkishPropBank-CS) repository.
 
 ## Requirements
 
