@@ -3,7 +3,7 @@ class Argument(object):
     __argument_type: str
     __id: str
 
-    def __init__(self, argument: str):
+    def constructor1(self, argument: str):
         """
         A constructor of Argument class which takes argument string which is in the form of argumentType$id
         and parses this string into argumentType and id. If the argument string does not contain '$' then the
@@ -20,22 +20,26 @@ class Argument(object):
         else:
             self.__argument_type = "NONE"
 
-    def initWithId(self,
-                   argumentType: str,
-                   _id: str):
+    def constructor2(self, argumentType: str, _id: str):
         """
-        Another constructor of Argument class which takes argumentType and id as inputs and initializes corresponding 
+        Another constructor of Argument class which takes argumentType and id as inputs and initializes corresponding
         attributes
 
         PARAMETERS
         ----------
-        argumentType : str 
+        argumentType : str
             Type of the argument
-        _id : str 
+        _id : str
             Id of the argument
         """
         self.__argument_type = argumentType
         self.__id = _id
+
+    def __init__(self, argumentOrType: str, _id: str = None):
+        if _id is None:
+            self.constructor1(argumentOrType)
+        else:
+            self.constructor2(argumentOrType, _id)
 
     def getArgumentType(self) -> str:
         """
@@ -58,6 +62,13 @@ class Argument(object):
             id.
         """
         return self.__id
+
+    def setId(self, _id: str):
+        """
+        Setter for id.
+        :param _id: New id
+        """
+        self.__id = _id
 
     def __str__(self) -> str:
         """
