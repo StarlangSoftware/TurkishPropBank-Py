@@ -22,8 +22,16 @@ class Frameset(object):
             self.__id = framesetNode.attrib["id"]
             self.__frameset_arguments = []
             for child in framesetNode:
-                self.__frameset_arguments.append(FramesetArgument(child.attrib["name"], child.text,
-                                                                  child.attrib["function"]))
+                if "grammaticalCase" in child.attrib:
+                    self.__frameset_arguments.append(FramesetArgument(child.attrib["name"],
+                                                                  child.text,
+                                                                  child.attrib["function"],
+                                                                  child.attrib["grammaticalCase"]))
+                else:
+                    self.__frameset_arguments.append(FramesetArgument(child.attrib["name"],
+                                                                  child.text,
+                                                                  child.attrib["function"],
+                                                                  ""))
         else:
             self.__id = ""
             self.__frameset_arguments = []

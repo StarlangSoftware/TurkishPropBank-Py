@@ -1,4 +1,3 @@
-import os
 import xml.etree.ElementTree
 from collections import KeysView
 
