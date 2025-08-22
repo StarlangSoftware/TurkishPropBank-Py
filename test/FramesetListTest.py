@@ -9,13 +9,13 @@ class FramesetListTest(unittest.TestCase):
         self.framesetList = FramesetList()
 
     def test_Frames(self):
-        self.assertEqual(17692, self.framesetList.size())
+        self.assertEqual(17531, self.framesetList.size())
 
     def test_ArgSize(self):
         count = 0
         for i in range(self.framesetList.size()):
             count += len(self.framesetList.getFrameSet(i).getFramesetArguments())
-        self.assertEqual(29761, count)
+        self.assertEqual(29473, count)
 
     def test_Case(self):
         caseList = {}
@@ -57,13 +57,13 @@ class FramesetListTest(unittest.TestCase):
                             caseList["nom"] = caseList["nom"] + 1
                         else:
                             caseList["nom"] = 1
-        self.assertEqual(422, caseList["abl"])
-        self.assertEqual(4690, caseList["acc"])
-        self.assertEqual(2423, caseList["dat"])
-        self.assertEqual(880, caseList["gen"])
-        self.assertEqual(459, caseList["ins"])
-        self.assertEqual(673, caseList["loc"])
-        self.assertEqual(2069, caseList["nom"])
+        self.assertEqual(418, caseList["abl"])
+        self.assertEqual(4633, caseList["acc"])
+        self.assertEqual(2402, caseList["dat"])
+        self.assertEqual(870, caseList["gen"])
+        self.assertEqual(451, caseList["ins"])
+        self.assertEqual(666, caseList["loc"])
+        self.assertEqual(2049, caseList["nom"])
 
     def test_ArgName(self):
         nameList = {}
@@ -73,10 +73,10 @@ class FramesetListTest(unittest.TestCase):
                     nameList[argument.getArgumentType()] = nameList[argument.getArgumentType()] + 1
                 else:
                     nameList[argument.getArgumentType()] = 1
-        self.assertEqual(14669, nameList["ARG0"])
-        self.assertEqual(13127, nameList["ARG1"])
-        self.assertEqual(1886, nameList["ARG2"])
-        self.assertEqual(78, nameList["ARG3"])
+        self.assertEqual(14535, nameList["ARG0"])
+        self.assertEqual(12996, nameList["ARG1"])
+        self.assertEqual(1865, nameList["ARG2"])
+        self.assertEqual(76, nameList["ARG3"])
         self.assertEqual(1, nameList["ARG4"])
 
     def test_ArgFunction(self):
@@ -87,17 +87,17 @@ class FramesetListTest(unittest.TestCase):
                     functionList[argument.getFunction()] = functionList[argument.getFunction()] + 1
                 else:
                     functionList[argument.getFunction()] = 1
-        self.assertEqual(481, functionList["com"])
+        self.assertEqual(475, functionList["com"])
         self.assertEqual(14, functionList["ext"])
-        self.assertEqual(814, functionList["loc"])
-        self.assertEqual(198, functionList["rec"])
-        self.assertEqual(14, functionList["pat"])
-        self.assertEqual(10688, functionList["ppt"])
-        self.assertEqual(605, functionList["src"])
-        self.assertEqual(801, functionList["gol"])
+        self.assertEqual(808, functionList["loc"])
+        self.assertEqual(195, functionList["rec"])
+        self.assertEqual(13, functionList["pat"])
+        self.assertEqual(10579, functionList["ppt"])
+        self.assertEqual(597, functionList["src"])
+        self.assertEqual(794, functionList["gol"])
         self.assertEqual(156, functionList["tmp"])
-        self.assertEqual(14558, functionList["pag"])
-        self.assertEqual(1432, functionList["dir"])
+        self.assertEqual(14425, functionList["pag"])
+        self.assertEqual(1417, functionList["dir"])
 
 if __name__ == '__main__':
     unittest.main()
